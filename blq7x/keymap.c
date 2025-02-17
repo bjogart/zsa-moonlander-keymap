@@ -3,6 +3,10 @@
 #define MOON_LED_LEVEL LED_LEVEL
 #define ML_SAFE_RANGE SAFE_RANGE
 
+#ifdef CONSOLE_ENABLE
+#include "print.h"
+#endif
+
 enum custom_keycodes {
   RGB_SLD = ML_SAFE_RANGE,
 };
@@ -32,22 +36,20 @@ enum tap_dance_codes {
   DANCE_13,
 };
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-  [0] = LAYOUT_moonlander(
-    KC_NO,          TD(DANCE_0),    TD(DANCE_1),    TD(DANCE_2),    TD(DANCE_3),    TD(DANCE_4),    KC_LBRC,                                        KC_RBRC,        TD(DANCE_6),    TD(DANCE_7),    TD(DANCE_8),    TD(DANCE_9),    TD(DANCE_10),   KC_GRAVE,       
-    KC_NO,          MT(MOD_LGUI, KC_W),KC_L,           KC_Y,           KC_P,           KC_B,           KC_LCBR,                                        KC_RCBR,        KC_Z,           KC_F,           KC_U,           KC_O,           KC_QUOTE,       KC_EQUAL,       
-    KC_BSLS,        KC_C,           MT(MOD_LALT, KC_R),MT(MOD_LSFT, KC_S),MT(MOD_LCTL, KC_T),KC_G,           KC_LPRN,                                                                        KC_RPRN,        KC_M,           MT(MOD_LCTL, KC_N),MT(MOD_LSFT, KC_E),MT(MOD_LALT, KC_I),KC_A,           KC_SCLN,        
-    KC_DELETE,      KC_Q,           KC_J,           KC_V,           KC_D,           KC_K,                                           KC_X,           KC_H,           KC_COMMA,       KC_DOT,         KC_SLASH,       KC_MINUS,       
-    KC_ESCAPE,      LCTL(KC_Z),     LCTL(KC_A),     TD(DANCE_5),    LCTL(KC_V),     LGUI(LSFT(KC_S)),                                                                                                KC_CAPS,        TD(DANCE_11),   KC_DOWN,        KC_UP,          TD(DANCE_12),   KC_F13,         
-    KC_SPACE,       KC_ENTER,       KC_NO,                          TD(DANCE_13),   KC_BSPC,        KC_SPACE
-  ),
-  [1] = LAYOUT_moonlander(
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, QK_BOOT,        
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_T,           KC_TAB,         KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_T,           KC_TAB,         KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, 
-    KC_TRANSPARENT, KC_1,           KC_2,           KC_3,           KC_4,           KC_5,           KC_TRANSPARENT,                                                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_1,           KC_2,           KC_3,           KC_4,           KC_5,           
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_LEFT_SHIFT,  KC_LEFT_CTRL,   KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_UP,          KC_RIGHT,       KC_LEFT_SHIFT,  KC_LEFT_CTRL,   KC_TRANSPARENT, 
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                                                                                 KC_TRANSPARENT, KC_LEFT,        KC_TRANSPARENT, KC_TRANSPARENT, KC_RIGHT,       KC_TRANSPARENT, 
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                 TO(0),          KC_TRANSPARENT, KC_TRANSPARENT
-  ),
+    [0] = LAYOUT_moonlander(
+        KC_NO, TD(DANCE_0), TD(DANCE_1), TD(DANCE_2), TD(DANCE_3), TD(DANCE_4), KC_LBRC, KC_RBRC, TD(DANCE_6), TD(DANCE_7), TD(DANCE_8), TD(DANCE_9), TD(DANCE_10), KC_GRAVE,
+        KC_NO, MT(MOD_LGUI, KC_W), KC_L, KC_Y, KC_P, KC_B, KC_LCBR, KC_RCBR, KC_Z, KC_F, KC_U, KC_O, KC_QUOTE, KC_EQUAL,
+        KC_BSLS, KC_C, MT(MOD_LALT, KC_R), MT(MOD_LSFT, KC_S), MT(MOD_LCTL, KC_T), KC_G, KC_LPRN, KC_RPRN, KC_M, MT(MOD_LCTL, KC_N), MT(MOD_LSFT, KC_E), MT(MOD_LALT, KC_I), KC_A, KC_SCLN,
+        KC_DELETE, KC_Q, KC_J, KC_V, KC_D, KC_K, KC_X, KC_H, KC_COMMA, KC_DOT, KC_SLASH, KC_MINUS,
+        KC_ESCAPE, LCTL(KC_Z), LCTL(KC_A), TD(DANCE_5), LCTL(KC_V), LGUI(LSFT(KC_S)), KC_CAPS, TD(DANCE_11), KC_DOWN, KC_UP, TD(DANCE_12), KC_F13,
+        KC_SPACE, KC_ENTER, KC_NO, TD(DANCE_13), KC_BSPC, KC_SPACE),
+    [1] = LAYOUT_moonlander(
+        KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, QK_BOOT,
+        KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_T, KC_TAB, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_T, KC_TAB, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
+        KC_TRANSPARENT, KC_1, KC_2, KC_3, KC_4, KC_5, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_1, KC_2, KC_3, KC_4, KC_5,
+        KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_LEFT_SHIFT, KC_LEFT_CTRL, KC_TRANSPARENT, KC_TRANSPARENT, KC_UP, KC_RIGHT, KC_LEFT_SHIFT, KC_LEFT_CTRL, KC_TRANSPARENT,
+        KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_LEFT, KC_TRANSPARENT, KC_TRANSPARENT, KC_RIGHT, KC_TRANSPARENT,
+        KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, TO(0), KC_TRANSPARENT, KC_TRANSPARENT),
 };
 
 extern rgb_config_t rgb_matrix_config;
@@ -76,7 +78,7 @@ void set_layer_color(int layer) {
     } else {
         RGB rgb = hsv_to_rgb( hsv );
         float f = (float)rgb_matrix_config.hsv.v / UINT8_MAX;
-        rgb_matrix_set_color( i, f * rgb.r, f * rgb.g, f * rgb.b );   
+        rgb_matrix_set_color(i, f * rgb.r, f * rgb.g, f * rgb.b);
     }
   }
 }
@@ -102,35 +104,53 @@ bool rgb_matrix_indicators_user(void) {
 }
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-  switch (keycode) {
+#ifdef CONSOLE_ENABLE
+  const bool is_combo = record->event.type == COMBO_EVENT;
+  uprintf(
+      "0x%04X,%u,%u,%u,%b,0x%02X,0x%02X,%u\n",
+      keycode,
+      is_combo ? 254 : record->event.key.row,
+      is_combo ? 254 : record->event.key.col,
+      get_highest_layer(layer_state),
+      record->event.pressed,
+      get_mods(),
+      get_oneshot_mods(),
+      record->tap.count);
+#endif
 
-    case TD(DANCE_0):
-    case TD(DANCE_1):
-    case TD(DANCE_2):
-    case TD(DANCE_3):
-    case TD(DANCE_4):
-    case TD(DANCE_5):
-    case TD(DANCE_6):
-    case TD(DANCE_7):
-    case TD(DANCE_8):
-    case TD(DANCE_9):
-    case TD(DANCE_10):
-    case TD(DANCE_11):
-    case TD(DANCE_12):
-        action = &tap_dance_actions[TD_INDEX(keycode)];
-        if (!record->event.pressed && action->state.count && !action->state.finished) {
-            tap_dance_tap_hold_t *tap_hold = (tap_dance_tap_hold_t *)action->user_data;
-            tap_code16(tap_hold->tap);
-        }
-        break;
-    case RGB_SLD:
-        if (rawhid_state.rgb_control) {
-            return false;
-        }
-        if (record->event.pressed) {
-            rgblight_mode(1);
-        }
-        return false;
+  switch (keycode)
+  {
+
+  case TD(DANCE_0):
+  case TD(DANCE_1):
+  case TD(DANCE_2):
+  case TD(DANCE_3):
+  case TD(DANCE_4):
+  case TD(DANCE_5):
+  case TD(DANCE_6):
+  case TD(DANCE_7):
+  case TD(DANCE_8):
+  case TD(DANCE_9):
+  case TD(DANCE_10):
+  case TD(DANCE_11):
+  case TD(DANCE_12):
+    action = &tap_dance_actions[TD_INDEX(keycode)];
+    if (!record->event.pressed && action->state.count && !action->state.finished)
+    {
+      tap_dance_tap_hold_t *tap_hold = (tap_dance_tap_hold_t *)action->user_data;
+      tap_code16(tap_hold->tap);
+    }
+    break;
+  case RGB_SLD:
+    if (rawhid_state.rgb_control)
+    {
+      return false;
+    }
+    if (record->event.pressed)
+    {
+      rgblight_mode(1);
+    }
+    return false;
   }
   return true;
 }
