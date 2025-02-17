@@ -34,11 +34,11 @@ enum tap_dance_codes {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_moonlander(
     KC_NO,          TD(DANCE_0),    TD(DANCE_1),    TD(DANCE_2),    TD(DANCE_3),    TD(DANCE_4),    KC_LBRC,                                        KC_RBRC,        TD(DANCE_6),    TD(DANCE_7),    TD(DANCE_8),    TD(DANCE_9),    TD(DANCE_10),   KC_GRAVE,       
-    KC_NO,          MT(MOD_LGUI, KC_W),KC_L,           KC_Y,           KC_P,           KC_B,           KC_LCBR,                                        KC_RCBR,        KC_Z,           KC_F,           KC_O,           KC_U,           KC_QUOTE,       KC_EQUAL,       
+    KC_NO,          MT(MOD_LGUI, KC_W),KC_L,           KC_Y,           KC_P,           KC_B,           KC_LCBR,                                        KC_RCBR,        KC_Z,           KC_F,           KC_U,           KC_O,           KC_QUOTE,       KC_EQUAL,       
     KC_BSLS,        KC_C,           MT(MOD_LALT, KC_R),MT(MOD_LSFT, KC_S),MT(MOD_LCTL, KC_T),KC_G,           KC_LPRN,                                                                        KC_RPRN,        KC_M,           MT(MOD_LCTL, KC_N),MT(MOD_LSFT, KC_E),MT(MOD_LALT, KC_I),KC_A,           KC_SCLN,        
     KC_DELETE,      KC_Q,           KC_J,           KC_V,           KC_D,           KC_K,                                           KC_X,           KC_H,           KC_COMMA,       KC_DOT,         KC_SLASH,       KC_MINUS,       
     KC_ESCAPE,      LCTL(KC_Z),     LCTL(KC_A),     TD(DANCE_5),    LCTL(KC_V),     LGUI(LSFT(KC_S)),                                                                                                KC_CAPS,        TD(DANCE_11),   KC_DOWN,        KC_UP,          TD(DANCE_12),   KC_F13,         
-    KC_SPACE,       KC_ENTER,       TO(2),                          TD(DANCE_13),   KC_BSPC,        KC_SPACE
+    KC_SPACE,       KC_ENTER,       KC_NO,                          TD(DANCE_13),   KC_BSPC,        KC_SPACE
   ),
   [1] = LAYOUT_moonlander(
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, QK_BOOT,        
@@ -47,14 +47,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_LEFT_SHIFT,  KC_LEFT_CTRL,   KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_UP,          KC_RIGHT,       KC_LEFT_SHIFT,  KC_LEFT_CTRL,   KC_TRANSPARENT, 
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                                                                                 KC_TRANSPARENT, KC_LEFT,        KC_TRANSPARENT, KC_TRANSPARENT, KC_RIGHT,       KC_TRANSPARENT, 
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                 TO(0),          KC_TRANSPARENT, KC_TRANSPARENT
-  ),
-  [2] = LAYOUT_moonlander(
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, 
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, 
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, 
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, 
-    KC_TRANSPARENT, KC_Y,           KC_B,           KC_U,           KC_N,           KC_TRANSPARENT,                                                                                                 KC_TRANSPARENT, KC_H,           KC_J,           KC_K,           KC_L,           KC_TRANSPARENT, 
-    KC_TRANSPARENT, KC_TRANSPARENT, TO(0),                          KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT
   ),
 };
 
@@ -69,8 +61,6 @@ const uint8_t PROGMEM ledmap[][RGB_MATRIX_LED_COUNT][3] = {
     [0] = { {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0} },
 
     [1] = { {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {9,218,204}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {9,218,204}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {9,218,204}, {9,218,204}, {0,0,0}, {0,0,0}, {9,218,204}, {9,218,204}, {9,218,204}, {0,0,0}, {0,0,0}, {9,218,204}, {9,218,204}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,250,183}, {0,0,0}, {9,218,204}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {9,218,204}, {9,218,204}, {0,0,0}, {0,0,0}, {0,0,0}, {9,218,204}, {9,218,204}, {0,0,0}, {0,0,0}, {9,218,204}, {9,218,204}, {9,218,204}, {0,0,0}, {0,0,0}, {9,218,204}, {9,218,204}, {9,218,204}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {9,218,204}, {0,0,0} },
-
-    [2] = { {119,37,130}, {119,37,130}, {119,37,130}, {119,37,130}, {119,37,130}, {119,37,130}, {119,37,130}, {119,37,130}, {119,37,130}, {119,37,130}, {119,37,130}, {119,37,130}, {119,37,130}, {119,37,130}, {119,37,130}, {119,37,130}, {119,37,130}, {119,37,130}, {119,37,130}, {119,37,130}, {119,37,130}, {119,37,130}, {119,37,130}, {119,37,130}, {119,37,130}, {119,37,130}, {119,37,130}, {119,37,130}, {119,37,130}, {119,37,130}, {119,37,130}, {119,37,130}, {119,37,130}, {119,37,130}, {119,37,130}, {119,37,130}, {119,37,130}, {119,37,130}, {119,37,130}, {119,37,130}, {119,37,130}, {119,37,130}, {119,37,130}, {119,37,130}, {119,37,130}, {119,37,130}, {119,37,130}, {119,37,130}, {119,37,130}, {119,37,130}, {119,37,130}, {119,37,130}, {119,37,130}, {119,37,130}, {119,37,130}, {119,37,130}, {119,37,130}, {119,37,130}, {119,37,130}, {119,37,130}, {119,37,130}, {119,37,130}, {119,37,130}, {119,37,130}, {119,37,130}, {119,37,130}, {119,37,130}, {119,37,130}, {119,37,130}, {119,37,130}, {119,37,130}, {119,37,130} },
 
 };
 
@@ -102,9 +92,6 @@ bool rgb_matrix_indicators_user(void) {
       break;
     case 1:
       set_layer_color(1);
-      break;
-    case 2:
-      set_layer_color(2);
       break;
    default:
     if (rgb_matrix_get_flags() == LED_FLAG_NONE)
