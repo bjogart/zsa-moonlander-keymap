@@ -107,7 +107,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 #ifdef CONSOLE_ENABLE
   const bool is_combo = record->event.type == COMBO_EVENT;
   uprintf(
-      "0x%04X,%u,%u,%u,%b,0x%02X,0x%02X,%u\n",
+      "%04X,%02X,%02X,%02X,%02u,%02X,%02X,%02X\n",
       keycode,
       is_combo ? 254 : record->event.key.row,
       is_combo ? 254 : record->event.key.col,
