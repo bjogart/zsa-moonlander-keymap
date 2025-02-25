@@ -35,8 +35,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_moonlander(
     KC_NO,          TD(DANCE_0),    TD(DANCE_1),    TD(DANCE_2),    TD(DANCE_3),    TD(DANCE_4),    KC_LBRC,                                        KC_RBRC,        TD(DANCE_6),    TD(DANCE_7),    TD(DANCE_8),    TD(DANCE_9),    TD(DANCE_10),   KC_GRAVE,       
     KC_NO,          MT(MOD_LGUI, KC_W),KC_L,           KC_Y,           KC_C,           KC_P,           KC_LCBR,                                        KC_RCBR,        KC_B,           KC_F,           KC_U,           KC_O,           KC_QUOTE,       KC_EQUAL,       
-    KC_BSLS,        KC_Z,           MT(MOD_LALT, KC_R),MT(MOD_LSFT, KC_S),MT(MOD_LCTL, KC_T),KC_G,           KC_LPRN,                                                                        KC_RPRN,        KC_M,           MT(MOD_LCTL, KC_N),MT(MOD_LSFT, KC_E),MT(MOD_LALT, KC_A),KC_I,           KC_SCLN,        
-    KC_DELETE,      KC_Q,           KC_J,           KC_V,           KC_D,           KC_K,                                           KC_X,           KC_H,           KC_COMMA,       KC_DOT,         KC_SLASH,       KC_MINUS,       
+    KC_BSLS,        KC_S,           MT(MOD_LALT, KC_T),MT(MOD_LSFT, KC_R),MT(MOD_LCTL, KC_D),KC_G,           KC_LPRN,                                                                        KC_RPRN,        KC_M,           MT(MOD_LCTL, KC_N),MT(MOD_LSFT, KC_E),MT(MOD_LALT, KC_A),KC_I,           KC_SCLN,        
+    KC_DELETE,      KC_Q,           KC_J,           KC_V,           KC_Z,           KC_K,                                           KC_X,           KC_H,           KC_COMMA,       KC_DOT,         KC_SLASH,       KC_MINUS,       
     KC_ESCAPE,      LCTL(KC_Z),     LCTL(KC_A),     TD(DANCE_5),    LCTL(KC_V),     LGUI(LSFT(KC_S)),                                                                                                KC_CAPS,        TD(DANCE_11),   KC_DOWN,        KC_UP,          TD(DANCE_12),   KC_F13,         
     KC_SPACE,       KC_ENTER,       KC_NO,                          TD(DANCE_13),   KC_BSPC,        KC_SPACE
   ),
