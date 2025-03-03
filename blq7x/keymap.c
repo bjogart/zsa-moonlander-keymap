@@ -3,10 +3,6 @@
 #define MOON_LED_LEVEL LED_LEVEL
 #define ML_SAFE_RANGE SAFE_RANGE
 
-#ifdef CONSOLE_ENABLE
-#include "print.h"
-#endif
-
 enum custom_keycodes {
   RGB_SLD = ML_SAFE_RANGE,
 };
@@ -80,7 +76,7 @@ void set_layer_color(int layer) {
     } else {
         RGB rgb = hsv_to_rgb( hsv );
         float f = (float)rgb_matrix_config.hsv.v / UINT8_MAX;
-        rgb_matrix_set_color(i, f * rgb.r, f * rgb.g, f * rgb.b);
+        rgb_matrix_set_color( i, f * rgb.r, f * rgb.g, f * rgb.b );   
     }
   }
 }
@@ -106,53 +102,35 @@ bool rgb_matrix_indicators_user(void) {
 }
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-#ifdef CONSOLE_ENABLE
-  const bool is_combo = record->event.type == COMBO_EVENT;
-  uprintf(
-      "%04X%02X%02X%02X%02u%02X%02X%02X\n",
-      keycode,
-      is_combo ? 254 : record->event.key.row,
-      is_combo ? 254 : record->event.key.col,
-      get_highest_layer(layer_state),
-      record->event.pressed,
-      get_mods(),
-      get_oneshot_mods(),
-      record->tap.count);
-#endif
+  switch (keycode) {
 
-  switch (keycode)
-  {
-
-  case TD(DANCE_0):
-  case TD(DANCE_1):
-  case TD(DANCE_2):
-  case TD(DANCE_3):
-  case TD(DANCE_4):
-  case TD(DANCE_5):
-  case TD(DANCE_6):
-  case TD(DANCE_7):
-  case TD(DANCE_8):
-  case TD(DANCE_9):
-  case TD(DANCE_10):
-  case TD(DANCE_11):
-  case TD(DANCE_12):
-    action = &tap_dance_actions[TD_INDEX(keycode)];
-    if (!record->event.pressed && action->state.count && !action->state.finished)
-    {
-      tap_dance_tap_hold_t *tap_hold = (tap_dance_tap_hold_t *)action->user_data;
-      tap_code16(tap_hold->tap);
-    }
-    break;
-  case RGB_SLD:
-    if (rawhid_state.rgb_control)
-    {
-      return false;
-    }
-    if (record->event.pressed)
-    {
-      rgblight_mode(1);
-    }
-    return false;
+    case TD(DANCE_0):
+    case TD(DANCE_1):
+    case TD(DANCE_2):
+    case TD(DANCE_3):
+    case TD(DANCE_4):
+    case TD(DANCE_5):
+    case TD(DANCE_6):
+    case TD(DANCE_7):
+    case TD(DANCE_8):
+    case TD(DANCE_9):
+    case TD(DANCE_10):
+    case TD(DANCE_11):
+    case TD(DANCE_12):
+        action = &tap_dance_actions[TD_INDEX(keycode)];
+        if (!record->event.pressed && action->state.count && !action->state.finished) {
+            tap_dance_tap_hold_t *tap_hold = (tap_dance_tap_hold_t *)action->user_data;
+            tap_code16(tap_hold->tap);
+        }
+        break;
+    case RGB_SLD:
+        if (rawhid_state.rgb_control) {
+            return false;
+        }
+        if (record->event.pressed) {
+            rgblight_mode(1);
+        }
+        return false;
   }
   return true;
 }
