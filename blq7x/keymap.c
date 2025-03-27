@@ -16,8 +16,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_moonlander(
     KC_GRAVE,       KC_TRANSPARENT, LCTL(KC_V),     LCTL(KC_A),     LCTL(KC_C),     KC_MS_BTN1,     KC_MS_BTN2,                                     KC_TRANSPARENT, KC_HOME,        KC_PGDN,        KC_PAGE_UP,     KC_END,         LGUI(KC_TAB),   KC_TRANSPARENT, 
     KC_TAB,         KC_V,           KC_M,           KC_L,           KC_C,           KC_P,           KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_B,           KC_NO,          KC_U,           KC_O,           KC_Q,           KC_SLASH,       
-    KC_BSPC,        MT(MOD_LALT, KC_S),LT(1,KC_T),     MT(MOD_LSFT, KC_R),LT(2,KC_D),     KC_Y,           KC_TRANSPARENT,                                                                 KC_TRANSPARENT, KC_F,           LT(3,KC_N),     MT(MOD_LSFT, KC_E),LT(1,KC_A),     MT(MOD_LALT, KC_I),KC_MINUS,       
-    TD(DANCE_0),    MT(MOD_LGUI, KC_X),KC_K,           KC_J,           MT(MOD_LCTL, KC_G),KC_W,                                           KC_Z,           MT(MOD_LCTL, KC_H),KC_COMMA,       LT(1,KC_DOT),   MT(MOD_LGUI, KC_QUOTE),KC_ENTER,       
+    KC_BSPC,        MT(MOD_LALT, KC_S),LT(1,KC_T),     MT(MOD_LSFT, KC_R),LT(2,KC_D),     KC_Y,           KC_TRANSPARENT,                                                                 KC_TRANSPARENT, KC_F,           LT(4,KC_N),     MT(MOD_LSFT, KC_E),LT(1,KC_A),     MT(MOD_LALT, KC_I),KC_MINUS,       
+    TD(DANCE_0),    MT(MOD_LGUI, KC_X),KC_K,           KC_J,           MT(MOD_LCTL, KC_G),KC_W,                                           KC_Z,           MT(MOD_LCTL, KC_H),KC_COMMA,       LT(3,KC_DOT),   MT(MOD_LGUI, KC_QUOTE),KC_ENTER,       
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_DOWN,        KC_UP,          LGUI(LSFT(KC_S)),                                                                                                KC_CAPS,        KC_LEFT,        KC_RIGHT,       KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, 
     KC_SPACE,       KC_UNDS,        KC_TRANSPARENT,                 KC_TRANSPARENT, KC_ESCAPE,      KC_NO
   ),
@@ -71,8 +71,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 };
 const uint16_t PROGMEM combo0[] = { KC_K, KC_J, COMBO_END};
-const uint16_t PROGMEM combo1[] = { KC_COMMA, LT(1,KC_DOT), COMBO_END};
-const uint16_t PROGMEM combo2[] = { KC_F, LT(3,KC_N), COMBO_END};
+const uint16_t PROGMEM combo1[] = { KC_COMMA, LT(3,KC_DOT), COMBO_END};
+const uint16_t PROGMEM combo2[] = { KC_F, LT(4,KC_N), COMBO_END};
 
 combo_t key_combos[COMBO_COUNT] = {
     COMBO(combo0, KC_BSLS),
