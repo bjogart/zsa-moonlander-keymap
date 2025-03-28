@@ -262,6 +262,6 @@ void dance_1_reset(tap_dance_state_t *state, void *user_data) {
 }
 
 tap_dance_action_t tap_dance_actions[] = {
-        [DANCE_0] = ACTION_TAP_DANCE_TAP_HOLD(LCTL(KC_C), LSFT(KC_X)),
+        [DANCE_0] = ACTION_TAP_DANCE_TAP_HOLD(LCTL(KC_C), LCTL(KC_X)),
         [DANCE_1] = ACTION_TAP_DANCE_FN_ADVANCED(on_dance_1, dance_1_finished, dance_1_reset),
 };
