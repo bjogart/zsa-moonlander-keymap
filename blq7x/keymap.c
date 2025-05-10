@@ -173,7 +173,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
   if (record->event.pressed) {
     switch (keycode) {
-      case M_THE: SEND_STRING("the");
+      case M_THE: SEND_STRING("the"); break;
     }
   }
 
