@@ -166,11 +166,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
   if (record->event.pressed) {
     switch (keycode) {
-      case KC_UNDS:
-        if (alt) {
-          send_unicode_string(shift_mods ? "\xe2\x80\x94" : "\xe2\x80\x93");
-          return false;
-        }
       case M_THE: MAGIC_STRING(/* */"the", KC_N); break;
       case M_ION: MAGIC_STRING(/*i*/"on", KC_S); break;
     }
