@@ -160,10 +160,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         return false;
   }
 
-  const uint8_t all_mods = get_mods() | get_weak_mods() | get_oneshot_mods();
-  const uint8_t shift_mods = all_mods & MOD_MASK_SHIFT;
-  const bool alt = all_mods & MOD_BIT_LALT;
-
   if (record->event.pressed) {
     switch (keycode) {
       case M_THE: MAGIC_STRING(/* */"the", KC_N); break;
