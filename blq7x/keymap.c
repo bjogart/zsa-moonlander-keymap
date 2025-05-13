@@ -9,6 +9,14 @@ enum custom_keycodes {
   M_THE,
 };
 
+#define MAGIC_STRING(str, repeat_keycode) \
+  magic_send_string_P(PSTR(str), (repeat_keycode))
+
+static void magic_send_string_P(const char *str, uint16_t repeat_keycode) {
+  send_string_P(str);
+  set_last_keycode(repeat_keycode);
+}
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_moonlander(
     KC_GRAVE,       KC_NO,          LCTL(KC_V),     LCTL(KC_A),     LCTL(KC_C),     LCTL(KC_X),     KC_MS_BTN1,                                     KC_TRANSPARENT, KC_HOME,        KC_PGDN,        KC_PAGE_UP,     KC_END,         LGUI(KC_TAB),   KC_NO,
@@ -154,7 +162,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
   if (record->event.pressed) {
     switch (keycode) {
-      case M_THE: SEND_STRING(/* */"the"); break;
+      case M_THE: MAGIC_STRING(/* */"the", KC_N); break;
     }
   }
 
