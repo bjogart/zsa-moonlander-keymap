@@ -180,7 +180,11 @@ uint16_t get_alt_repeat_key_keycode_user(uint16_t keycode, uint8_t mods) {
       case KC_TAB:
         return M_THE;
       case KC_I:
-        return M_ION;
+        if ((mods & MOD_MASK_SHIFT) == 0) {
+          return M_ION;
+        } else {
+          return KC_QUOT;
+        }
     }
   }
 
