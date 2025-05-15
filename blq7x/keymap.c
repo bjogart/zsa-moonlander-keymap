@@ -7,6 +7,7 @@ enum custom_keycodes {
   RGB_SLD = ML_SAFE_RANGE,
   // Macros invoked through the Magic (Alternate Repeat) key
   M_THE,
+  M_ION,
 };
 
 #define MAGIC_STRING(str, repeat_keycode) \
@@ -162,6 +163,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   if (record->event.pressed) {
     switch (keycode) {
       case M_THE: MAGIC_STRING(/* */"the", KC_N); break;
+      case M_ION: MAGIC_STRING(/*i*/"on", KC_S); break;
     }
   }
 
@@ -175,6 +177,8 @@ uint16_t get_alt_repeat_key_keycode_user(uint16_t keycode, uint8_t mods) {
       case KC_ENT:
       case KC_TAB:
         return M_THE;
+      case KC_I:
+        return M_ION;
     }
   }
 
