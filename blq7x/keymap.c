@@ -180,7 +180,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 }
 
 uint16_t get_alt_repeat_key_keycode_user(uint16_t keycode, uint8_t mods) {
-  uint16_t keycode = get_tap_keycode(keycode);
+  keycode = get_tap_keycode(keycode);
 
   if ((mods & ~MOD_MASK_SHIFT) == 0) {
     switch (keycode) {
