@@ -148,15 +148,6 @@ bool rgb_matrix_indicators_user(void) {
   return true;
 }
 
-static uint16_t get_tap_keycode(uint16_t keycode) {
-  switch (keycode) {
-    case QK_MOD_TAP ... QK_MOD_TAP_MAX:
-      return QK_MOD_TAP_GET_TAP_KEYCODE(keycode);
-  }
-
-  return keycode;
-}
-
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
     case RGB_SLD:
