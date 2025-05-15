@@ -22,7 +22,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_moonlander(
     KC_GRAVE,       KC_NO,          LCTL(KC_V),     LCTL(KC_A),     LCTL(KC_C),     LCTL(KC_X),     KC_MS_BTN1,                                     KC_TRANSPARENT, KC_HOME,        KC_PGDN,        KC_PAGE_UP,     KC_END,         LGUI(KC_TAB),   KC_NO,
     KC_TAB,         KC_V,           KC_M,           KC_L,           KC_C,           KC_P,           KC_MS_BTN2,                                 KC_TRANSPARENT, KC_B,           QK_AREP,          KC_U,           KC_O,           KC_Q,           KC_SLASH,
-    KC_BSPC,        MT(MOD_LALT, KC_S),LT(1,KC_T),     MT(MOD_LSFT, KC_R),LT(2,KC_D),     KC_Y,           KC_TRANSPARENT,                                                                 KC_TRANSPARENT, KC_F,           LT(3,KC_N),     MT(MOD_LSFT, KC_E),LT(1,KC_A),     LALT_T(KC_I),KC_MINUS,
+    KC_BSPC,        MT(MOD_LALT, KC_S),LT(1,KC_T),     MT(MOD_LSFT, KC_R),LT(2,KC_D),     KC_Y,           KC_TRANSPARENT,                                                                 KC_TRANSPARENT, KC_F,           LT(3,KC_N),     MT(MOD_LSFT, KC_E),LT(1,KC_A),     MT(MOD_LALT, KC_I),KC_MINUS,
     KC_COLN,        MT(MOD_LGUI, KC_X),KC_K,           KC_J,           MT(MOD_LCTL, KC_G),KC_W,                                           KC_Z,           MT(MOD_LCTL, KC_H),KC_COMMA,       LT(4,KC_DOT),   MT(MOD_LGUI, KC_QUOTE),KC_ENTER,
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_DOWN,        KC_UP,          LGUI(LSFT(KC_S)),                                                                                                KC_CAPS,        KC_LEFT,        KC_RIGHT,       KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
     KC_SPACE,       KC_UNDS,        KC_TRANSPARENT,                 KC_TRANSPARENT, KC_ESCAPE,      QK_REP
@@ -148,6 +148,15 @@ bool rgb_matrix_indicators_user(void) {
   return true;
 }
 
+static uint16_t get_tap_keycode(uint16_t keycode) {
+  switch (keycode) {
+    case QK_MOD_TAP ... QK_MOD_TAP_MAX:
+      return QK_MOD_TAP_GET_TAP_KEYCODE(keycode);
+  }
+
+  return keycode;
+}
+
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
     case RGB_SLD:
@@ -171,6 +180,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 }
 
 uint16_t get_alt_repeat_key_keycode_user(uint16_t keycode, uint8_t mods) {
+  uint16_t keycode = get_tap_keycode(keycode);
+
   if ((mods & ~MOD_MASK_SHIFT) == 0) {
     switch (keycode) {
       case KC_SPC:
