@@ -8,6 +8,7 @@ enum custom_keycodes {
   // Macros invoked through the Magic (Alternate Repeat) key
   M_THE,
   M_ION,
+  M_MENT,
 };
 
 #define MAGIC_STRING(str, repeat_keycode) \
@@ -164,6 +165,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
       case M_THE: MAGIC_STRING(/* */"the", KC_N); break;
       case M_ION: MAGIC_STRING(/*i*/"on", KC_S); break;
+      case M_MENT: MAGIC_STRING(/*m*/"ent", KC_S); break;
     }
   }
 
@@ -185,6 +187,7 @@ uint16_t get_alt_repeat_key_keycode_user(uint16_t keycode, uint8_t mods) {
         } else {
           return KC_QUOT;
         }
+      case KC_M: return M_MENT;
     }
   }
 
