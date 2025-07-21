@@ -183,6 +183,7 @@ uint16_t get_alt_repeat_key_keycode_user(uint16_t keycode, uint8_t mods) {
         return M_THE;
       case KC_A: return KC_O;
       case KC_O: return KC_A;
+      case KC_E: return KC_U;
       case KC_I:
         if ((mods & MOD_MASK_SHIFT) == 0) {
           return M_ION;
