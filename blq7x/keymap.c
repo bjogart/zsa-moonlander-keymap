@@ -161,6 +161,13 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         return false;
   }
 
+    if (get_repeat_key_count() < 0 && (all_mods & ~MOD_MASK_SHIFT) == 0 &&
+      (keycode == KC_A || keycode == KC_E || keycode == KC_I ||
+       keycode == KC_O || keycode == KC_U || keycode == KC_Y)) {
+    set_last_keycode(KC_N);
+    set_last_mods(0);
+  }
+
   if (record->event.pressed) {
     switch (keycode) {
       case M_THE: MAGIC_STRING(/* */"the", KC_N); break;
