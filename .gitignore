@@ -1,2 +1,3 @@
-.idea
-*.iml
+.gitignore
+qmk_log.txt
+qmk_log.ps1
