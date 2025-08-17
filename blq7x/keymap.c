@@ -12,10 +12,10 @@ enum custom_keycodes {
   M_QUEN,
 };
 
-#define MAGIC_STRING(str, mods, repeat_keycode) \
-  magic_send_string_P(PSTR(str), (mods), (repeat_keycode))
+#define MAGIC_STRING(str, repeat_keycode) \
+  magic_send_string_P(PSTR(str), (repeat_keycode))
 
-static void magic_send_string_P(const char *str, uint8_t mods, uint16_t repeat_keycode) {
+static void magic_send_string_P(const char *str, uint16_t repeat_keycode) {
   send_string_P(str);
   set_last_keycode(repeat_keycode);
 }
@@ -175,10 +175,10 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
   if (record->event.pressed) {
     switch (keycode) {
-      case M_THE: MAGIC_STRING(/* */"the", all_mods, KC_N); break;
-      case M_ION: MAGIC_STRING(/*i*/"on", all_mods, KC_S); break;
-      case M_MENT: MAGIC_STRING(/*m*/"ent", all_mods, KC_S); break;
-      case M_QUEN: MAGIC_STRING(/*q*/"uen", all_mods, KC_S); break;
+      case M_THE: MAGIC_STRING(/* */"the", KC_N); break;
+      case M_ION: MAGIC_STRING(/*i*/"on", KC_S); break;
+      case M_MENT: MAGIC_STRING(/*m*/"ent", KC_S); break;
+      case M_QUEN: MAGIC_STRING(/*q*/"uen", KC_S); break;
     }
   }
 
