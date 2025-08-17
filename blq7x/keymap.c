@@ -10,6 +10,7 @@ enum custom_keycodes {
   M_ION,
   M_MENT,
   M_QUEN,
+  M_TMENT,
 };
 
 #define MAGIC_STRING(str, repeat_keycode) \
@@ -42,7 +43,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_TRANSPARENT, KC_NO,          LCTL(KC_PAGE_UP),LCTL(KC_PGDN),  KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_PAGE_UP,     KC_HOME,        KC_UP,          KC_END,         KC_NO,          KC_TRANSPARENT,
     KC_TRANSPARENT, KC_LEFT_ALT,    KC_LEFT_CTRL,   KC_LEFT_SHIFT,  KC_NO,          KC_MS_BTN1,     KC_TRANSPARENT,                                                                 KC_TRANSPARENT, KC_PGDN,        KC_LEFT,        KC_DOWN,        KC_RIGHT,       KC_DELETE,      KC_TRANSPARENT,
     KC_TRANSPARENT, KC_LEFT_GUI,    KC_PAGE_UP,     KC_PGDN,        KC_TRANSPARENT, KC_TRANSPARENT,                                 LCTL(KC_Z),     KC_NO,          KC_NO,          KC_APPLICATION, KC_TRANSPARENT, KC_TRANSPARENT,
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                                                                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
+    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                                                                                 KC_TRANSPARENT, KC_TRANSPARENT,
+    case KC_T: return M_TMENT; KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
     LGUI(KC_TAB),   KC_WWW_BACK,    KC_TRANSPARENT,                 KC_TRANSPARENT, QK_LLCK,        KC_TRANSPARENT
   ),
   [3] = LAYOUT_moonlander(
@@ -179,6 +181,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       case M_ION: MAGIC_STRING(/*i*/"on", KC_S); break;
       case M_MENT: MAGIC_STRING(/*m*/"ent", KC_S); break;
       case M_QUEN: MAGIC_STRING(/*q*/"uen", KC_S); break;
+      case M_TMENT: MAGIC_STRING(/*t*/"ment", KC_S); break;
     }
   }
 
@@ -206,6 +209,7 @@ uint16_t get_alt_repeat_key_keycode_user(uint16_t keycode, uint8_t mods) {
         }
       case KC_M: return M_MENT;
       case KC_Q: return M_QUEN;
+      case KC_T: return M_TMENT;
     }
   }
 
