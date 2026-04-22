@@ -13,6 +13,8 @@ enum custom_keycodes {
   M_MENT,
   M_QUEN,
   M_TMENT,
+  M_UPDIR,
+  M_NOOP,
 };
 
 #define MAGIC_STRING(str, repeat_keycode) \
@@ -210,6 +212,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       case M_MENT: MAGIC_STRING(/*m*/"ent", KC_S); break;
       case M_QUEN: MAGIC_STRING(/*q*/"uen", KC_S); break;
       case M_TMENT: MAGIC_STRING(/*t*/"ment", KC_S); break;
+      case M_UPDIR: MAGIC_STRING(/*.*/"./", KC_NOOP); break;
     }
   }
 
@@ -245,6 +248,11 @@ uint16_t get_alt_repeat_key_keycode_user(uint16_t keycode, uint8_t mods) {
       case KC_L: return KC_K;
       case KC_S: return KC_K;
       case KC_R: return KC_L;
+      case KC_DOT:
+        if ((mods & MOD_MASK_SHIFT) == 0) {
+          return M_UPDIR;
+        }
+        return M_NOOP;
     }
   }
 
