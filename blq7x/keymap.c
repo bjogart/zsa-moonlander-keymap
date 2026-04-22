@@ -212,7 +212,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       case M_MENT: MAGIC_STRING(/*m*/"ent", KC_S); break;
       case M_QUEN: MAGIC_STRING(/*q*/"uen", KC_S); break;
       case M_TMENT: MAGIC_STRING(/*t*/"ment", KC_S); break;
-      case M_UPDIR: MAGIC_STRING(/*.*/"./", KC_NOOP); break;
+      case M_UPDIR: MAGIC_STRING(/*.*/"./", KC_DOT); break;
     }
   }
 
